@@ -52,8 +52,8 @@ export default function FetchAPI() {
           ))}
         </table>
         <div className="flex flex-col gap-2">
-          {effect.map((item) => (
-            <p>Effect:{item.effect}</p>
+          {effect.map((item, index) => (
+            <p key={index}>Effect:{item.effect}</p>
           ))}
         </div>
       </div>
