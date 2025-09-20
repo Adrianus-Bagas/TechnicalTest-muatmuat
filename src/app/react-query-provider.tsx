@@ -5,8 +5,6 @@ import {useHydrateAtoms} from "jotai/react/utils";
 import {queryClientAtom} from "jotai-tanstack-query";
 import React, {useState} from "react";
 import {Provider} from "jotai";
-import {DevTools} from "jotai-devtools";
-import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
 
 const HydrateAtoms = ({children, client}: {children: React.JSX.Element; client: QueryClient}) => {
   useHydrateAtoms([[queryClientAtom, client]]);
@@ -21,10 +19,8 @@ const QueryProviders = ({children}: {children: React.JSX.Element}) => {
     <>
       <QueryClientProvider client={client}>
         <Provider>
-          <DevTools />
           <HydrateAtoms client={client}>{children}</HydrateAtoms>
         </Provider>
-        <ReactQueryDevtools initialIsOpen={false} position="bottom" />
       </QueryClientProvider>
     </>
   );
